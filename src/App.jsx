@@ -4,9 +4,13 @@ function App() {
   const [array, setArray] = useState(["上資料結構","寫器材網頁","吃早餐"]);
   const [text, setText] = useState(""); 
   let todo = useState([]);
-
+const delHandler = (id)=>{
+  let arr = [...array];
+  arr.splice(id,1);
+  return arr;
+}
   array.forEach((item, index)=>{
-    todo.push(<p>{index}. <b>{item} </b><button onClick={()=>setArray(array.filter(d=>d!=item))}>刪除</button></p>)
+    todo.push(<p>{index}. <b>{item} </b><button onClick={()=>setArray(delHandler(index))}>刪除</button></p>)
   })
 
   return (
